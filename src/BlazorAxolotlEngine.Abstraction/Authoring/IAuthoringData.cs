@@ -6,5 +6,4 @@ namespace BlazorAxolotlEngine.Abstraction.Authoring;
 
 public interface IAuthoringData
 {
-    
 }

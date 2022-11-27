@@ -6,5 +6,4 @@ namespace BlazorAxolotlEngine.Abstraction.Component;
 
 public interface IComponentData
 {
-    
 }
