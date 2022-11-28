@@ -13,14 +13,17 @@ internal record TestEntity : IEntity
 {
     public void OnCreate(IWorld world)
     {
+        // Do nothing
     }
 
     public void OnDestroy()
     {
+        // Do nothing
     }
 
     public void OnUpdate()
     {
+        // Do nothing
     }
 }
 
@@ -34,9 +37,9 @@ public class WorldBaseTests
 
         world.Should()
             .NotBeNull();
-        
+
         var guid = world.SpawnEntity(entity);
-        
+
         world.Entities.Should()
             .ContainKey(guid);
     }
