@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Abstrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Query", "BlazorAxolotlEngine.Query\BlazorAxolotlEngine.Query.csproj", "{721BCB18-B2F7-47B2-A811-FF29F9DD2FB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Entity", "BlazorAxolotlEngine.Entity\BlazorAxolotlEngine.Entity.csproj", "{9B671E98-91D8-418F-A95A-DFD345816339}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.System", "BlazorAxolotlEngine.System\BlazorAxolotlEngine.System.csproj", "{9B671E98-91D8-418F-A95A-DFD345816339}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core", "BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj", "{0F275598-F869-4A1B-97C6-12E199BE19A3}"
 EndProject

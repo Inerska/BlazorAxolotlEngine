@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using BlazorAxolotlEngine.Abstraction;
+using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
 
 namespace BlazorAxolotlEngine.Core;
@@ -36,4 +37,6 @@ public class World
     {
         Entities.Values.ToList().ForEach(x => x.OnUpdate());
     }
+
+    public Dictionary<ISystem, IComponentData> Components { get; }
 }

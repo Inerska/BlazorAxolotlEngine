@@ -9,7 +9,8 @@ using Xunit;
 
 namespace BlazorAxolotlEngine.Core.Test.World;
 
-internal record TestSystem : ISystem
+internal record TestSystem
+    : ISystem
 {
     public void OnCreate(IWorld world)
     {
