@@ -9,7 +9,7 @@ using Xunit;
 
 namespace BlazorAxolotlEngine.Core.Test.World;
 
-internal record TestEntity : IEntity
+internal record TestSystem : ISystem
 {
     public void OnCreate(IWorld world)
     {
@@ -33,7 +33,7 @@ public class WorldBaseTests
     public void SpawnEntity_Should_Add_To_Entity_Dictionary()
     {
         var world = new Core.World();
-        var entity = new TestEntity();
+        var entity = new TestSystem();
 
         world.Should()
             .NotBeNull();

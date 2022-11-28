@@ -10,26 +10,26 @@ namespace BlazorAxolotlEngine.Core;
 public class World
     : IWorld
 {
-    public Dictionary<Guid, IEntity> Entities { get; } = new();
+    public Dictionary<Guid, ISystem> Entities { get; } = new();
 
-    public Guid SpawnEntity(IEntity entity)
+    public Guid SpawnEntity(ISystem system)
     {
         var guid = Guid.NewGuid();
 
-        Entities.Add(guid, entity);
+        Entities.Add(guid, system);
 
-        entity.OnCreate(this);
+        system.OnCreate(this);
 
         return guid;
     }
 
-    public void DestroyEntity(IEntity entity)
+    public void DestroyEntity(ISystem system)
     {
-        var guid = Entities.FirstOrDefault(x => x.Value == entity).Key;
+        var guid = Entities.FirstOrDefault(x => x.Value == system).Key;
 
         Entities.Remove(guid);
 
-        entity.OnDestroy();
+        system.OnDestroy();
     }
 
     public void Update()
