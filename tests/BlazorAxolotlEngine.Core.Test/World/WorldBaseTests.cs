@@ -4,6 +4,8 @@
 
 using BlazorAxolotlEngine.Abstraction;
 using BlazorAxolotlEngine.Abstraction.Entity;
+using BlazorAxolotlEngine.Component;
+using BlazorAxolotlEngine.Entity.Extension;
 using FluentAssertions;
 using Xunit;
 
@@ -43,5 +45,18 @@ public class WorldBaseTests
 
         world.Entities.Should()
             .ContainKey(guid);
+    }
+
+    [Fact]
+    public void Test()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.AssignTo(entity, typeof(Transform));
+        
+        entity.Has<Transform>()
+            .Should()
+            .BeTrue();
     }
 }
