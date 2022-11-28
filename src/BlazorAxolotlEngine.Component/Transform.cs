@@ -12,4 +12,5 @@ public struct Transform
 {
     Vector3 _position;
     Quaternion _rotation;
+    Vector3 _scale;
 }
