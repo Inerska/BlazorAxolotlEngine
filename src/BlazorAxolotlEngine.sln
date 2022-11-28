@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Samples", "BlazorAxolotlEngine.Samples\BlazorAxolotlEngine.Samples.csproj", "{A3CA8B68-FE27-4BDD-8039-CD58701137D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core.Test", "..\tests\BlazorAxolotlEngine.Core.Test\BlazorAxolotlEngine.Core.Test.csproj", "{42884186-898A-4F4B-B3FD-B76B1F37787A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,5 +42,9 @@ Global
 		{A3CA8B68-FE27-4BDD-8039-CD58701137D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D11D79EA-76D2-4B8F-978D-D2A3BE33E808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D11D79EA-76D2-4B8F-978D-D2A3BE33E808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42884186-898A-4F4B-B3FD-B76B1F37787A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42884186-898A-4F4B-B3FD-B76B1F37787A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42884186-898A-4F4B-B3FD-B76B1F37787A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42884186-898A-4F4B-B3FD-B76B1F37787A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
