@@ -6,14 +6,18 @@ using BlazorAxolotlEngine.Abstraction;
 using BlazorAxolotlEngine.Abstraction.Entity;
 using BlazorAxolotlEngine.Component;
 using BlazorAxolotlEngine.Entity.Extension;
+using BlazorAxolotlEngine.Query.System.Extension;
 using FluentAssertions;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace BlazorAxolotlEngine.Core.Test.World;
 
 internal record TestSystem
     : ISystem
 {
+    public IWorld World { get; set; }
+
     public void OnCreate(IWorld world)
     {
         // Do nothing
@@ -32,6 +36,13 @@ internal record TestSystem
 
 public class WorldBaseTests
 {
+    private readonly ITestOutputHelper _outputHelper;
+    
+    public WorldBaseTests(ITestOutputHelper outputHelper)
+    {
+        _outputHelper = outputHelper;
+    }
+    
     [Fact]
     public void SpawnEntity_Should_Add_To_Entity_Dictionary()
     {
@@ -41,7 +52,11 @@ public class WorldBaseTests
         world.Should()
             .NotBeNull();
 
+        _outputHelper.WriteLine($"Entity count: {world.Entities.Count}");
+        
         var guid = world.SpawnEntity(entity);
+        
+        _outputHelper.WriteLine($"Entity GUID: {guid}");
 
         world.Entities.Should()
             .ContainKey(guid);
@@ -53,8 +68,13 @@ public class WorldBaseTests
         var world = new Core.World();
         var entity = new TestSystem();
 
+        world.Should().NotBeNull();
+        entity.Should().NotBeNull();
+
+        var _ = world.SpawnEntity(entity);
+
         world.AssignTo(entity, typeof(Transform));
-        
+
         entity.Has<Transform>()
             .Should()
             .BeTrue();

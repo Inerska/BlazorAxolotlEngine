@@ -8,5 +8,5 @@ namespace BlazorAxolotlEngine.Abstraction;
 
 public interface IWorld
 {
-    public Dictionary<ISystem, Type> Systems { get; set; }
+    public Dictionary<Guid, HashSet<Type>> Systems { get; set; }
 }

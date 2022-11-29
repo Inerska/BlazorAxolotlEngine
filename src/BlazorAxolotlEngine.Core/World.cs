@@ -3,7 +3,6 @@
 // See the LICENSE file in the project root for more information.
 
 using BlazorAxolotlEngine.Abstraction;
-using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
 
 namespace BlazorAxolotlEngine.Core;
@@ -13,15 +12,33 @@ public class World
 {
     public Dictionary<Guid, ISystem> Entities { get; } = new();
 
+    public Dictionary<Guid, HashSet<Type>> Systems { get; set; } = new();
+
     public Guid SpawnEntity(ISystem system)
     {
         var guid = Guid.NewGuid();
 
         Entities.Add(guid, system);
+        Systems.Add(guid, new HashSet<Type>());
 
+        system.World = this;
         system.OnCreate(this);
 
         return guid;
+    }
+
+    public bool TryGetGuid(ISystem system, out Guid guid)
+    {
+        foreach (var (key, value) in Entities)
+        {
+            if (value != system) continue;
+            
+            guid = key;
+            return true;
+        }
+
+        guid = Guid.Empty;
+        return false;
     }
 
     public void DestroyEntity(ISystem system)
@@ -38,5 +55,8 @@ public class World
         Entities.Values.ToList().ForEach(x => x.OnUpdate());
     }
 
-    public Dictionary<ISystem, IComponentData> Components { get; }
+    public Guid[] SpawnEntities(params ISystem[] systems)
+    {
+        return systems.Select(SpawnEntity).ToArray();
+    }
 }

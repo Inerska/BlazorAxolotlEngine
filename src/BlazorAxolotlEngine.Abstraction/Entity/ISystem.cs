@@ -6,6 +6,8 @@ namespace BlazorAxolotlEngine.Abstraction.Entity;
 
 public interface ISystem
 {
+    public IWorld World { get; set; }
+
     public void OnCreate(IWorld world);
     public void OnDestroy();
     public void OnUpdate();

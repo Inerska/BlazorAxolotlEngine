@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\BlazorAxolotlEngine.Component\BlazorAxolotlEngine.Component.csproj" />
     <ProjectReference Include="..\..\src\BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj" />
+    <ProjectReference Include="..\..\src\BlazorAxolotlEngine.Query\BlazorAxolotlEngine.Query.csproj" />
   </ItemGroup>
 
 </Project>

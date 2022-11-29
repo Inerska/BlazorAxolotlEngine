@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BlazorAxolotlEngine.Abstraction\BlazorAxolotlEngine.Abstraction.csproj" />
+      <ProjectReference Include="..\BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj" />
     </ItemGroup>
 
 </Project>
