@@ -11,17 +11,18 @@ namespace BlazorAxolotlEngine.Entity.Extension;
 
 public static class AssignComponentSystemExtension
 {
-    public static bool AssignTo<TComponent>(this IWorld world, ISystem system, Type type)
+    public static bool AssignTo<TComponent>(this IWorld world, ISystem system)
         where TComponent : IComponentData
     {
-        if (!typeof(IComponentData).IsAssignableFrom(type)) throw new ArgumentException("Type must be a component");
+        if (!typeof(IComponentData).IsAssignableFrom(typeof(TComponent)))
+            throw new ArgumentException("Type must be a component");
 
         var result = (world as World).TryGetGuid(system, out var guid);
 
         try
         {
             var components = world.Systems.TryGetValue(guid, out var value) ? value : new HashSet<Type>();
-            components.Add(type);
+            components.Add(typeof(TComponent));
 
             return true;
         }

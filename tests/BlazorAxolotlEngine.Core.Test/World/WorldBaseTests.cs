@@ -37,12 +37,12 @@ internal record TestSystem
 public class WorldBaseTests
 {
     private readonly ITestOutputHelper _outputHelper;
-    
+
     public WorldBaseTests(ITestOutputHelper outputHelper)
     {
         _outputHelper = outputHelper;
     }
-    
+
     [Fact]
     public void SpawnEntity_Should_Add_To_Entity_Dictionary()
     {
@@ -53,9 +53,9 @@ public class WorldBaseTests
             .NotBeNull();
 
         _outputHelper.WriteLine($"Entity count: {world.Entities.Count}");
-        
+
         var guid = world.SpawnEntity(entity);
-        
+
         _outputHelper.WriteLine($"Entity GUID: {guid}");
 
         world.Entities.Should()
@@ -63,20 +63,51 @@ public class WorldBaseTests
     }
 
     [Fact]
-    public void Test()
+    public void SpawnedEntity_Should_Not_Have_Any_Component()
     {
         var world = new Core.World();
         var entity = new TestSystem();
 
-        world.Should().NotBeNull();
-        entity.Should().NotBeNull();
+        world.SpawnEntity(entity);
 
-        var _ = world.SpawnEntity(entity);
+        entity.Has<TransformComponent>()
+            .Should()
+            .BeFalse();
+    }
 
-        world.AssignTo(entity, typeof(Transform));
+    [Fact]
+    public void SpawnedEntity_Should_Have_A_Component_When_Added()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
 
-        entity.Has<Transform>()
+        world.SpawnEntity(entity);
+
+        world.AssignTo<TransformComponent>(entity);
+
+        entity.Has<TransformComponent>()
             .Should()
             .BeTrue();
+    }
+
+    [Fact]
+    public void SpawnedEntity_Should_Have_A_Component_When_Added_With_Component_Even_If_There_Are_Multiple_Entities()
+    {
+        var world = new Core.World();
+        var entity1 = new TestSystem();
+        var entity2 = new TestSystem();
+
+        world.SpawnEntity(entity1);
+        world.SpawnEntity(entity2);
+
+        world.AssignTo<TransformComponent>(entity1);
+
+        entity1.Has<TransformComponent>()
+            .Should()
+            .BeTrue();
+
+        entity2.Has<TransformComponent>()
+            .Should()
+            .BeFalse();
     }
 }
