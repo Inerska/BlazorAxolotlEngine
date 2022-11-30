@@ -2,6 +2,7 @@
 // Licensed under the GNU General Public License v3.0.
 // See the LICENSE file in the project root for more information.
 
+using System.Numerics;
 using BlazorAxolotlEngine.Abstraction;
 using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
@@ -204,5 +205,23 @@ public class WorldBaseTests
         entity.Invoking(e => e.Get<TransformComponent>())
             .Should()
             .Throw<NoComponentException>();
+    }
+    
+    [Fact]
+    public void Get_Component_And_Modify_It_Should_Modify_The_Component()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.SpawnEntity(entity);
+
+        world.AssignTo<TransformComponent>(entity);
+
+        var component = entity.Get<TransformComponent>();
+
+        component.Position = new Vector3(1, 2, 3);
+        
+        component.Position.Should()
+            .Be(new Vector3(1, 2, 3));
     }
 }
