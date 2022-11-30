@@ -12,7 +12,7 @@ Example of some code with ECS (Entity Component System):
 var world = new World();
 var entity = new TestSystem(); // You must create a class that inherits from ISystem, it can be a tank, a player, a bullet, etc.
 
-world.AssignTo<TransformComponent(entity);
+world.AssignTo<TransformComponent>(entity);
 
 if (entity.Has<TransformComponent>()) {
     var transform = entity.Get<TransformComponent>();
