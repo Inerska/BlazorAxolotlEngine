@@ -7,6 +7,7 @@ using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
 using BlazorAxolotlEngine.Component;
 using BlazorAxolotlEngine.Core.Exception;
+using BlazorAxolotlEngine.Core.Extension;
 using BlazorAxolotlEngine.Entity.Extension;
 using BlazorAxolotlEngine.Query.System.Extension;
 using FluentAssertions;

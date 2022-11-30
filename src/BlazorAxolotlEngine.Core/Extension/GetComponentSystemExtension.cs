@@ -4,10 +4,9 @@
 
 using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
-using BlazorAxolotlEngine.Core;
 using BlazorAxolotlEngine.Core.Exception;
 
-namespace BlazorAxolotlEngine.Entity.Extension;
+namespace BlazorAxolotlEngine.Core.Extension;
 
 public static class GetComponentSystemExtension
 {
