@@ -7,7 +7,7 @@ using BlazorAxolotlEngine.Abstraction.Component;
 
 namespace BlazorAxolotlEngine.Component;
 
-public struct Transform 
+public struct TransformComponent 
     : IComponentData
 {
     Vector3 _position;
