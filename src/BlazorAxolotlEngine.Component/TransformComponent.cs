@@ -7,10 +7,10 @@ using BlazorAxolotlEngine.Abstraction.Component;
 
 namespace BlazorAxolotlEngine.Component;
 
-public struct TransformComponent 
+public struct TransformComponent
     : IComponentData
 {
-    Vector3 _position;
-    Quaternion _rotation;
-    Vector3 _scale;
+    public Vector3 Position;
+    public Quaternion Rotation;
+    public Vector3 Scale;
 }
