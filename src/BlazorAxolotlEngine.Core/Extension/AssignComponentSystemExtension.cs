@@ -12,7 +12,7 @@ namespace BlazorAxolotlEngine.Entity.Extension;
 
 public static class AssignComponentSystemExtension
 {
-    public static bool AssignTo(this IWorld world, ISystem system, Type componentType)
+    private static bool AssignTo(this IWorld world, ISystem system, Type componentType)
     {
         if (!typeof(IComponentData).IsAssignableFrom(componentType))
             throw new ArgumentException("The componentType must be a IComponentData");
