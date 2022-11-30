@@ -12,32 +12,6 @@ namespace BlazorAxolotlEngine.Entity.Extension;
 
 public static class AssignComponentSystemExtension
 {
-    public static bool AssignTo<TComponent>(this IWorld world, ISystem system)
-        where TComponent : IComponentData
-    {
-        if (!typeof(IComponentData).IsAssignableFrom(typeof(TComponent)))
-            throw new ArgumentException("Type must be a component");
-
-        var result = (world as World).TryGetGuid(system, out var guid);
-
-        if (!result)
-        {
-            throw new NotPresentInWorldException();
-        }
-
-        try
-        {
-            var components = world.Systems.TryGetValue(guid, out var value) ? value : new HashSet<Type>();
-            components.Add(typeof(TComponent));
-
-            return true;
-        }
-        catch (ArgumentException)
-        {
-            return false;
-        }
-    }
-
     public static bool AssignTo(this IWorld world, ISystem system, Type componentType)
     {
         if (!typeof(IComponentData).IsAssignableFrom(componentType))
@@ -45,10 +19,7 @@ public static class AssignComponentSystemExtension
 
         var result = (world as World).TryGetGuid(system, out var guid);
 
-        if (!result)
-        {
-            throw new NotPresentInWorldException();
-        }
+        if (!result) throw new NotPresentInWorldException();
 
         try
         {
@@ -66,28 +37,14 @@ public static class AssignComponentSystemExtension
         }
     }
 
+    public static bool AssignTo<TComponent>(this IWorld world, ISystem system)
+        where TComponent : IComponentData
+    {
+        return world.AssignTo(system, typeof(TComponent));
+    }
+
     public static bool Assign<TComponent>(this ISystem system)
     {
-        if (!typeof(IComponentData).IsAssignableFrom(typeof(TComponent)))
-            throw new ArgumentException("Type must be a component");
-
-        var result = (system.World as World).TryGetGuid(system, out var guid);
-
-        if (!result)
-        {
-            throw new NotPresentInWorldException();
-        }
-
-        try
-        {
-            var components = system.World.Systems.TryGetValue(guid, out var value) ? value : new HashSet<Type>();
-            components.Add(typeof(TComponent));
-
-            return true;
-        }
-        catch (ArgumentException)
-        {
-            return false;
-        }
+        return system.World.AssignTo(system, typeof(TComponent));
     }
 }
