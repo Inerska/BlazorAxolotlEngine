@@ -5,6 +5,7 @@
 using BlazorAxolotlEngine.Abstraction;
 using BlazorAxolotlEngine.Abstraction.Entity;
 using BlazorAxolotlEngine.Component;
+using BlazorAxolotlEngine.Core.Exception;
 using BlazorAxolotlEngine.Entity.Extension;
 using BlazorAxolotlEngine.Query.System.Extension;
 using FluentAssertions;
@@ -109,5 +110,31 @@ public class WorldBaseTests
         entity2.Has<TransformComponent>()
             .Should()
             .BeFalse();
+    }
+
+    [Fact]
+    public void AssignTo_T_To_ISystem_Should_Add_Component()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.SpawnEntity(entity);
+
+        world.AssignTo<TransformComponent>(entity);
+
+        entity.Has<TransformComponent>()
+            .Should()
+            .BeTrue();
+    }
+    
+    [Fact]
+    public void AssignTo_T_To_ISystem_Not_In_World_Should_Throw_NotPresentInWorldException()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.Invoking(w => w.AssignTo<TransformComponent>(entity))
+            .Should()
+            .Throw<NotPresentInWorldException>();
     }
 }
