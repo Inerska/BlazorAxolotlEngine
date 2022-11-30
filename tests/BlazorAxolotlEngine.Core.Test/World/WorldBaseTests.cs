@@ -174,4 +174,35 @@ public class WorldBaseTests
             .And
             .BeOfType<TransformComponent>();
     }
+    
+    [Fact]
+    public void Get_Component_Of_ISystem_Which_Has_Component_Should_Return_Component()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.SpawnEntity(entity);
+
+        world.AssignTo<TransformComponent>(entity);
+
+        var component = entity.Get<TransformComponent>();
+
+        component.Should()
+            .NotBeNull()
+            .And
+            .BeOfType<TransformComponent>();
+    }
+    
+    [Fact]
+    public void Get_Component_Of_ISystem_Which_Has_No_Component_Should_Throw_NoComponentException()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.SpawnEntity(entity);
+
+        entity.Invoking(e => e.Get<TransformComponent>())
+            .Should()
+            .Throw<NoComponentException>();
+    }
 }

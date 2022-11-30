@@ -20,4 +20,21 @@ public static class GetComponentSystemExtension
         component = world.Systems[guid].OfType<TComponent>().FirstOrDefault();
         return component != null;
     }
+
+    public static TComponent Get<TComponent>(this ISystem system)
+        where TComponent : IComponentData
+    {
+        var world = system.World as World;
+
+        if (!world.TryGetGuid(system, out var guid)) throw new NotPresentInWorldException();
+
+        try
+        {
+            return world.Systems[guid].OfType<TComponent>().First();
+        }
+        catch (System.Exception)
+        {
+            throw new NoComponentException();
+        }
+    }
 }
