@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Query",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core", "BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj", "{0F275598-F869-4A1B-97C6-12E199BE19A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Samples", "BlazorAxolotlEngine.Samples\BlazorAxolotlEngine.Samples.csproj", "{A3CA8B68-FE27-4BDD-8039-CD58701137D7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core.Test", "..\tests\BlazorAxolotlEngine.Core.Test\BlazorAxolotlEngine.Core.Test.csproj", "{42884186-898A-4F4B-B3FD-B76B1F37787A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Component", "BlazorAxolotlEngine.Component\BlazorAxolotlEngine.Component.csproj", "{9BA43FCD-3A6D-4FF6-8E1C-23A80EE5DD7E}"
@@ -32,10 +30,6 @@ Global
 		{0F275598-F869-4A1B-97C6-12E199BE19A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F275598-F869-4A1B-97C6-12E199BE19A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F275598-F869-4A1B-97C6-12E199BE19A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3CA8B68-FE27-4BDD-8039-CD58701137D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3CA8B68-FE27-4BDD-8039-CD58701137D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3CA8B68-FE27-4BDD-8039-CD58701137D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3CA8B68-FE27-4BDD-8039-CD58701137D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D11D79EA-76D2-4B8F-978D-D2A3BE33E808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D11D79EA-76D2-4B8F-978D-D2A3BE33E808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42884186-898A-4F4B-B3FD-B76B1F37787A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
