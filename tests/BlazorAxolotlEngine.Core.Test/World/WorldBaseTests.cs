@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using BlazorAxolotlEngine.Abstraction;
+using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
 using BlazorAxolotlEngine.Component;
 using BlazorAxolotlEngine.Core.Exception;
@@ -126,7 +127,7 @@ public class WorldBaseTests
             .Should()
             .BeTrue();
     }
-    
+
     [Fact]
     public void AssignTo_T_To_ISystem_Not_In_World_Should_Throw_NotPresentInWorldException()
     {
@@ -137,7 +138,7 @@ public class WorldBaseTests
             .Should()
             .Throw<NotPresentInWorldException>();
     }
-    
+
     [Fact]
     public void AssignTo_T_To_ISystem_With_Component_Should_Throw_AlreadyHasComponentException()
     {
@@ -151,5 +152,25 @@ public class WorldBaseTests
         world.Invoking(w => w.AssignTo<TransformComponent>(entity))
             .Should()
             .Throw<AlreadyHasComponentException>();
+    }
+
+    [Fact]
+    public void TryGetComponent_T_Of_ISystem_Which_Has_Component_Should_Return_True_And_Component()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.SpawnEntity(entity);
+
+        world.AssignTo<TransformComponent>(entity);
+
+        entity.TryGetComponent<TransformComponent>(out var component)
+            .Should()
+            .BeTrue();
+
+        component.Should()
+            .NotBeNull()
+            .And
+            .BeOfType<TransformComponent>();
     }
 }

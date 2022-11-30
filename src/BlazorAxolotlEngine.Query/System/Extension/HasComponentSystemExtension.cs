@@ -19,7 +19,8 @@ public static class HasComponentSystemExtension
 
         if (!world.Systems.ContainsKey(guid)) return false;
 
-        var components = world.Systems.TryGetValue(guid, out var value) ? value : new HashSet<Type>();
-        return components.Contains(typeof(TComponent));
+        var components = world.Systems.TryGetValue(guid, out var value) ? value : new HashSet<IComponentData>();
+        
+        return components.Any(x => x is TComponent);
     }
 }

@@ -17,20 +17,22 @@ public static class AssignComponentSystemExtension
     {
         if (!typeof(IComponentData).IsAssignableFrom(componentType))
             throw new ArgumentException("The componentType must be a IComponentData");
+        
+        var componentData = (IComponentData)Activator.CreateInstance(componentType);
 
         var result = (world as World).TryGetGuid(system, out var guid);
 
         if (!result) throw new NotPresentInWorldException();
 
-        if (world.Systems[guid].Contains(componentType)) throw new AlreadyHasComponentException();
+        if (world.Systems[guid].Contains(componentData)) throw new AlreadyHasComponentException();
 
         try
         {
             var components = world.Systems.TryGetValue(guid, out var value)
                 ? value
-                : new HashSet<Type>();
+                : new HashSet<IComponentData>();
 
-            components.Add(componentType);
+            components.Add(componentData);
 
             return true;
         }

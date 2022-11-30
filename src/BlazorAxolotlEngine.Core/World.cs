@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using BlazorAxolotlEngine.Abstraction;
+using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
 
 namespace BlazorAxolotlEngine.Core;
@@ -12,14 +13,15 @@ public class World
 {
     public Dictionary<Guid, ISystem> Entities { get; } = new();
 
-    public Dictionary<Guid, HashSet<Type>> Systems { get; set; } = new();
+    public Dictionary<Guid, HashSet<IComponentData>> Systems { get; set; } = new();
+    public Dictionary<Type, IComponentData> Components { get; set; } = new();
 
     public Guid SpawnEntity(ISystem system)
     {
         var guid = Guid.NewGuid();
 
         Entities.Add(guid, system);
-        Systems.Add(guid, new HashSet<Type>());
+        Systems.Add(guid, new HashSet<IComponentData>());
 
         system.World = this;
         system.OnCreate(this);
