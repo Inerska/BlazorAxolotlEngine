@@ -137,4 +137,19 @@ public class WorldBaseTests
             .Should()
             .Throw<NotPresentInWorldException>();
     }
+    
+    [Fact]
+    public void AssignTo_T_To_ISystem_With_Component_Should_Throw_AlreadyHasComponentException()
+    {
+        var world = new Core.World();
+        var entity = new TestSystem();
+
+        world.SpawnEntity(entity);
+
+        world.AssignTo<TransformComponent>(entity);
+
+        world.Invoking(w => w.AssignTo<TransformComponent>(entity))
+            .Should()
+            .Throw<AlreadyHasComponentException>();
+    }
 }

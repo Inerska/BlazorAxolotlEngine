@@ -7,6 +7,7 @@ using BlazorAxolotlEngine.Abstraction.Component;
 using BlazorAxolotlEngine.Abstraction.Entity;
 using BlazorAxolotlEngine.Core;
 using BlazorAxolotlEngine.Core.Exception;
+using BlazorAxolotlEngine.Core.Test.World;
 
 namespace BlazorAxolotlEngine.Entity.Extension;
 
@@ -20,6 +21,8 @@ public static class AssignComponentSystemExtension
         var result = (world as World).TryGetGuid(system, out var guid);
 
         if (!result) throw new NotPresentInWorldException();
+
+        if (world.Systems[guid].Contains(componentType)) throw new AlreadyHasComponentException();
 
         try
         {
