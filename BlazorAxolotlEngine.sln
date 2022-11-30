@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Abstraction", "BlazorAxolotlEngine.Abstraction\BlazorAxolotlEngine.Abstraction.csproj", "{D11D79EA-76D2-4B8F-978D-D2A3BE33E808}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Abstraction", "src/BlazorAxolotlEngine.Abstraction\BlazorAxolotlEngine.Abstraction.csproj", "{D11D79EA-76D2-4B8F-978D-D2A3BE33E808}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Query", "BlazorAxolotlEngine.Query\BlazorAxolotlEngine.Query.csproj", "{721BCB18-B2F7-47B2-A811-FF29F9DD2FB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Query", "src/BlazorAxolotlEngine.Query\BlazorAxolotlEngine.Query.csproj", "{721BCB18-B2F7-47B2-A811-FF29F9DD2FB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core", "BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj", "{0F275598-F869-4A1B-97C6-12E199BE19A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core", "src/BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj", "{0F275598-F869-4A1B-97C6-12E199BE19A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core.Test", "..\tests\BlazorAxolotlEngine.Core.Test\BlazorAxolotlEngine.Core.Test.csproj", "{42884186-898A-4F4B-B3FD-B76B1F37787A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Component", "src/BlazorAxolotlEngine.Component\BlazorAxolotlEngine.Component.csproj", "{9BA43FCD-3A6D-4FF6-8E1C-23A80EE5DD7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Component", "BlazorAxolotlEngine.Component\BlazorAxolotlEngine.Component.csproj", "{9BA43FCD-3A6D-4FF6-8E1C-23A80EE5DD7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core.Test", "tests\BlazorAxolotlEngine.Core.Test\BlazorAxolotlEngine.Core.Test.csproj", "{B669AEA4-0D3C-42B3-BDB7-EADE8F292EA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,5 +40,9 @@ Global
 		{9BA43FCD-3A6D-4FF6-8E1C-23A80EE5DD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BA43FCD-3A6D-4FF6-8E1C-23A80EE5DD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BA43FCD-3A6D-4FF6-8E1C-23A80EE5DD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B669AEA4-0D3C-42B3-BDB7-EADE8F292EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B669AEA4-0D3C-42B3-BDB7-EADE8F292EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B669AEA4-0D3C-42B3-BDB7-EADE8F292EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B669AEA4-0D3C-42B3-BDB7-EADE8F292EA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
