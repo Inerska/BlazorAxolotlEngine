@@ -6,6 +6,9 @@ using BlazorAxolotlEngine.Abstraction.Component;
 
 namespace BlazorAxolotlEngine.Abstraction;
 
+/// <summary>
+///     Represents a place where systems can be registered and executed.
+/// </summary>
 public interface IWorld
 {
     public Dictionary<Guid, HashSet<IComponentData>> Systems { get; set; }

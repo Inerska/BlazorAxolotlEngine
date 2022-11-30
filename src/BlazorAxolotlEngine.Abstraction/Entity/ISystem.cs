@@ -4,6 +4,10 @@
 
 namespace BlazorAxolotlEngine.Abstraction.Entity;
 
+/// <summary>
+///     Represents a single entity in the game.
+///     You need to derive from this class to create your own entities.
+/// </summary>
 public interface ISystem
 {
     public IWorld World { get; set; }

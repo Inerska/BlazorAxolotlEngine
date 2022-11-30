@@ -4,6 +4,9 @@
 
 namespace BlazorAxolotlEngine.Abstraction.Component;
 
+/// <summary>
+///     Represents a component that a system can use.
+/// </summary>
 public interface IComponentData
 {
 }
