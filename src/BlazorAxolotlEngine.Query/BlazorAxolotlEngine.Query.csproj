@@ -18,4 +18,8 @@
       <ProjectReference Include="..\BlazorAxolotlEngine.Core\BlazorAxolotlEngine.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="System\Extension" />
+    </ItemGroup>
+
 </Project>
