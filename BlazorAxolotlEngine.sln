@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Core.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldGameSample", "samples\HelloWorldGameSample\HelloWorldGameSample.csproj", "{55A5F49D-8073-4578-AACC-B131AAA6794C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAxolotlEngine.Engine", "src\BlazorAxolotlEngine.Engine\BlazorAxolotlEngine.Engine.csproj", "{A10035E3-4E80-47D6-A97A-3BCB24B31AFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,5 +52,9 @@ Global
 		{55A5F49D-8073-4578-AACC-B131AAA6794C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A5F49D-8073-4578-AACC-B131AAA6794C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A5F49D-8073-4578-AACC-B131AAA6794C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10035E3-4E80-47D6-A97A-3BCB24B31AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10035E3-4E80-47D6-A97A-3BCB24B31AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10035E3-4E80-47D6-A97A-3BCB24B31AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10035E3-4E80-47D6-A97A-3BCB24B31AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
